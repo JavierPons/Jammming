@@ -2,7 +2,7 @@ import React from 'react';
 import './TrackList' from '../TrackList/TrackList';
 import './Playlist.css';
 
-class Playlist extends React.Component{
+class PlayList extends React.Component{
     constructor(props) {
         super(props);
         
@@ -22,7 +22,7 @@ class Playlist extends React.Component{
         <input value={this.props.playListName} 
             onChange={this.handleNameChange}/>
             <TrackList  
-            track={this.props.playlistTracks}
+            track={this.props.playListTracks}
             isRemoval={true}
             onRemove={this.props.onRemove}>
             <a class="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</a>

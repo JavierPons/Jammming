@@ -5,7 +5,7 @@ const spotifyURIBase = 'https://api.spotify.com/v1/';
 
 const accessToken ;
 
-const Spotigy = {
+const Spotify = {
    
     getAccessToken() {
        
@@ -65,7 +65,7 @@ const Spotigy = {
         
         const accessToken = Spotify.getAccessToken();
         const headers = {
-            Authoritation: `Bearer ${accessToken}`
+            Authorization: `Bearer ${accessToken}`
         };
         let userId;
         return fetch(`${spotifyURIBase}me`, {headers: headers})
