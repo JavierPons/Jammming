@@ -3,7 +3,7 @@ const redirectURI = 'http://localhost:3000/';
 const accessURIBase = 'https://accounts.spotify.com/authorize';
 const spotifyURIBase = 'https://api.spotify.com/v1/';
 
-const accessToken ;
+let accessToken = '' ;
 
 const Spotify = {
    
@@ -20,7 +20,7 @@ const Spotify = {
             accessToken = accessTokenMatch[1];
            const expiresIn = Number(expiresInMatch[1]);
             window.setTimeout(() => accessToken = '', expiresIn * 1000);
-            window.history.pushState('Access Token', null '/');
+            window.history.pushState('Access Token', null,'/');
             return accessToken;
         }   else {
             const accessURI = `${accessURIBase}?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
