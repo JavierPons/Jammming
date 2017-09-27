@@ -78,7 +78,7 @@ class App extends React.Component {
       <SearchResults searchResults={this.state.searchResults} 
         onAdd={this.addTrack} />
       <PlayList playListName={this.state.playListName}
-        playlistTrack={this.state.playlistTrack}
+        playlistTracks={this.state.playlistTracks}
         onRemove={this.removeTrack}
         onNameChange={this.updatePlayListName}
         onSave={this.savePlayList}

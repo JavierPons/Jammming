@@ -1,6 +1,7 @@
 import React from 'react';
 import './Track.css';
 
+
 class Track extends React.Component {
     constructor(props){
         super(props);
@@ -32,7 +33,7 @@ class Track extends React.Component {
     
     
     
-    render(){
+   render(){
         return(
         <div className="Track">
   <div className="Track-information">
