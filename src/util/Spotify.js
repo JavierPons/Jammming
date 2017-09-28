@@ -33,7 +33,7 @@ const Spotify = {
         const accessToken = Spotify.getAccessToken();
         return fetch(`{spotifyURIBase}search?type=track&q={term}`, {
              headers: {
-                 Authorization: `Bearer ${accessToken}`
+                 Authorization:` Bearer ${accessToken} `
              }
         }
                     ).then(response => { return response.json(); }
