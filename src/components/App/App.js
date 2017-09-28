@@ -12,7 +12,7 @@ class App extends React.Component {
            searchResults : [],
             playListName : 'New PlayList',
             playlistTrack: []
-            
+
         };
         this.search = this.search.bind(this);
         this.addTrack = this.addTrack.bind(this);
@@ -20,12 +20,12 @@ class App extends React.Component {
         this.updatePlayListName = this.updatePlayListName.bind(this);
         this.savePlayList = this.savePlayList.bind(this);
     }
-    
+
     search(term) {
-        
-      Spotify.search(term).then(searhResults => {
-          this.setState({SearchResults: SearchResults});
-          
+
+      Spotify.search(term).then(searchResults => {
+          this.setState({searchResults: searchResults});
+
       });
         console.log("test");
     }
@@ -35,48 +35,48 @@ class App extends React.Component {
             tracks.push(track);
             this.setState( {playlistTrack: tracks} );
         }
-        
+
     }
-    
+
     removeTrack(track) {
-       let tracks = this.state.playlistTrack; 
-        
+       let tracks = this.state.playlistTrack;
+
         tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
         this.setState({playlistTrack : tracks});
-        
+
     }
-    
+
     updatePlayListName(name) {
-        
-       this.setState({playListName: name}); 
+
+       this.setState({playListName: name});
     }
-    
+
     savePlayList() {
-        
+
       const trackURIs = this.state.playlistTrack.map(track => track.uri);
-        
+
         Spotify.savePlayList(this.state.playListName, trackURIs).then(()=>{
             this.setState(
             {
-                
+
                 playListName : 'New Playlist',
                 playlistTrack: []
             }
-            
+
             );
         });
-        
+
     }
-    
-   
+
+
   render() {
     return (
       <div>
   <h1>Ja<span className="highlight">mmm</span>ing</h1>
   <div className="App">
-    < SearchBar onSearch={this.search} /> 
+    < SearchBar onSearch={this.search} />
     <div className="App-playlist">
-      <SearchResults searchResults={this.state.searchResults} 
+      <SearchResults searchResults={this.state.searchResults}
         onAdd={this.addTrack} />
       <PlayList playListName={this.state.playListName}
         playlistTracks={this.state.playlistTrack}
@@ -92,7 +92,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-
