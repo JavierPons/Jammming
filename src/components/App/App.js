@@ -23,8 +23,8 @@ class App extends React.Component {
     
     search(term) {
         
-      Spotify.search(term).then(searhResults => {
-          this.setState({SearchResults: SearchResults});
+      Spotify.search(term).then(searchResults => {
+          this.setState({searchResults: searchResults});
           
       });
         console.log("test");
@@ -42,7 +42,7 @@ class App extends React.Component {
        let tracks = this.state.playlistTrack; 
         
         tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
-        this.setState({playlistTrack : tracks});
+        this.setState({playlistTrack: tracks});
         
     }
     
@@ -64,6 +64,7 @@ class App extends React.Component {
             }
             
             );
+            
         });
         
     }

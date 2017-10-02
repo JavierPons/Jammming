@@ -3,7 +3,7 @@ const redirectURI = 'http://localhost:3000/';
 const accessURIBase = 'https://accounts.spotify.com/authorize';
 const spotifyURIBase = 'https://api.spotify.com/v1/';
 
-let accessToken = '' ;
+let accessToken = '';
 
 const Spotify = {
    
@@ -31,29 +31,31 @@ const Spotify = {
     
     search(term) {
         const accessToken = Spotify.getAccessToken();
-        return fetch(`{spotifyURIBase}search?type=track&q={term}`, {
+        return fetch(`${spotifyURIBase}search?type=track&q=${term}`, {
              headers: {
                  Authorization:` Bearer ${accessToken} `
              }
         }
                     ).then(response => { return response.json(); }
                           ).then(jsonResponse => {
+            
             if (!jsonResponse.tracks) {
                 
                 return [];
+                
             }
                 return jsonResponse.tracks.items.map(track => ({
-                    
+                     
                     id: track.id,
                     name: track.name,
                     length: track.duration_ms,
                     image: track.album.images[2],
                     artist: track.artists[0].name,
                     album: track.album.name,
-                    uri: track.uri
+                    uri: track.uri,
                 }));
             
-            
+           
         });
         
     },
@@ -69,7 +71,7 @@ const Spotify = {
         };
         let userId;
         return fetch(`${spotifyURIBase}me`, {headers: headers})
-        .then(response => response.json())
+        .then(response => response.json())  
         .then(jsonResponse =>{
             userId = jsonResponse.id;
             return fetch(`${spotifyURIBase}users/${userId}/playlists`,
@@ -84,6 +86,7 @@ const Spotify = {
             
             .then(response => response.json())
             .then(jsonResponse => {
+                
                 const playListId = jsonResponse.id;
                 return fetch(`${spotifyURIBase}users/${userId}/playlists/${playListId}/tracks`,{
                    headers: headers,
