@@ -27,7 +27,7 @@ class App extends React.Component {
           this.setState({searchResults: searchResults});
           
       });
-        console.log("test");
+        
     }
      addTrack(track) {
     let tracks = this.state.playlistTrack;
