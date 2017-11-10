@@ -3,10 +3,29 @@ October 6th 2017
 
 OBJECTIVE
 When an user press Enter key triggers a search.
+
 BACKGROUND 
 The jammming app user can find whatever artist, song or album from Spotify. For do that user should type inside the input field his/her preference. After that only when user press button Search will start the search. That make a little disturbing the User Experience UX.
 The enter key is in the keyboard. If you are in your computer you should let the keyboard and take with your hand the mouse and click on search button. It will be more natural and easy if you can press Enter key that use the mouse.
-TECHNICAL DESIGN
+That issue will give space to create an other feature. That pressing only whatever key the applicatio will work and find the object or the search.
+
+But ussualy the hand and fingers are adapted automaticaly by repeating probably to press enter after after type for exemple a Album name. It is more logical to press enter that other key. For that reaseon this featur it was choosen.
 
 Inside SearchBar.js we need to add an extra method (pressEnter) for implement the user press Enter key. When user press Enter key will call search() method in the <input/> tag.  And it calls the new method (pressEnter).
+
+
+TECHNICAL DESIGN
+
+
+By coding and adding pressEnter method  iqual to a function with a parameter called event. With this somebody press key enter event parameter will call search() method and it will start the search without pressing button Search.
+
+/* No possible to add pictures of the front end of how work enter feature. */
+
+CAVEAT
+
+One problem that we will have is that if we press Enter key and we are not into the input fild it will not happen anything. Only being in the input field will make work the feature.
+An other issue is that if we press Enter key and the input field is empty will clear all the search. Anything more will happen.
+
+
+
 
